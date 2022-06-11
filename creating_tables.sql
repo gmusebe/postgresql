@@ -24,3 +24,12 @@ SELECT name, country FROM Cities;
 -- Use math Operators in "/"
 SELECT name, population/area AS population_density
 FROM Cities;
+
+--  String Operators & Functions
+SELECT name || ', ' || country AS location
+FROM Cities;
+-- Same as:
+SELECT
+  CONCAT(UPPER(name), ', ', UPPER(country)) AS location
+FROM
+  Cities;
