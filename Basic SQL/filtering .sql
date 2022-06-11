@@ -49,3 +49,12 @@ WHERE
   area NOT IN (3043, 8223)
   AND name = 'Delhi';
 -- replace AND with OR
+
+-- Caluculated columns in Where statements
+SELECT
+  name,
+  population / area AS population_density
+FROM
+  Cities
+WHERE
+  population / area > 6000;
