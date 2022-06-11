@@ -58,3 +58,12 @@ FROM
   Cities
 WHERE
   population / area > 6000;
+
+-- Updating tables
+-- Update values in tables
+UPDATE
+	Cities
+SET
+	population = 39505000
+WHERE
+	name = 'Tokyo';
