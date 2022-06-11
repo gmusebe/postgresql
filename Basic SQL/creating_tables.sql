@@ -7,9 +7,10 @@ CREATE TABLE Cities(
 );
 
 -- Insert values in Table
-INSERT INTO Cities (name, country, population, area)
+INSERT INTO
+  Cities (name, country, population, area)
 VALUES
-	('Delhi', 'India', 28125000, 2240),
+  ('Delhi', 'India', 28125000, 2240),
   ('Shanghai', 'China', 22125000, 4015),
   ('Sao Paulo', 'Brazil', 20935000, 3043);
 
@@ -22,12 +23,18 @@ SELECT name, country FROM Cities;
 
 -- Calculated Column
 -- Use math Operators in "/"
-SELECT name, population/area AS population_density
-FROM Cities;
+SELECT
+  name,
+  population / area AS population_density
+FROM
+  Cities;
 
 --  String Operators & Functions
-SELECT name || ', ' || country AS location
-FROM Cities;
+SELECT
+  name | ', ' | country AS location
+FROM
+  Cities;
+
 -- Same as:
 SELECT
   CONCAT(UPPER(name), ', ', UPPER(country)) AS location

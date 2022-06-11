@@ -7,6 +7,6 @@
 
 
 ## Repository structure
-  * SQL Basic Operation
-  * SQL Intermediate
-  * Advanced SQL
+  * [SQL Basic Operation](https://github.com/Gmusebe/postgresql/tree/main/Basic%20SQL)
+  * [SQL Intermediate]()
+  * [Advanced SQL]()
