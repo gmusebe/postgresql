@@ -19,3 +19,8 @@ SELECT * FROM Cities;
 
 -- Retrieve specific column data
 SELECT name, country FROM Cities;
+
+-- Calculated Column
+-- Use math Operators in "/"
+SELECT name, population/area AS population_density
+FROM Cities;
