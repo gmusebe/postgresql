@@ -67,3 +67,9 @@ SET
 	population = 39505000
 WHERE
 	name = 'Tokyo';
+
+-- Delete rows
+DELETE FROM
+  Cities
+WHERE
+  name = 'Tokyo';
