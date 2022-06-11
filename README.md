@@ -1,25 +1,71 @@
 <p align="center">
-  <img src="https://cdnjobs.net/cached_uploads/fit/140/140/2021/07/09/36625093-212503816078813-5737943919384068096-n-1625853678.png" alt="Sublime's custom image"/>
+  <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="Sublime's custom image"/>
 </p>
 
-# Spatial Analysis of ACLED Data
->R tool for `geographically analysing` ACLED data.
+# PostgreSQL
+> Basic Introduction to SQL functions in Data Analysis
 
-# [ACLED](https://acleddata.com/#/dashboard)
-The Armed Conflict Location & Event Data Project (ACLED) is a disaggregated `data collection`, `analysis`, and `crisis mapping` project
-ACLED collects real-time data on the locations, dates, actors, fatalities, and types of all reported political violence and protest events around the world.
 
 ## Repository structure
 
-* [Installations](https://github.com/Gmusebe/ACLED-Spatial-Analysis-with-R-#installations)
-* [Setting Environment](https://github.com/Gmusebe/ACLED-Spatial-Analysis-with-R-#setting-environment)
-* [Data](https://github.com/Gmusebe/ACLED-Spatial-Analysis-with-R-#data)
-* [Cleaning & Feature Engineering](https://github.com/Gmusebe/ACLED-Spatial-Analysis-with-R-#cleaning--feature-engineering)
-* [Visualization](https://github.com/Gmusebe/ACLED-Spatial-Analysis-with-R-#visualization)
-  - [Part 1: Summary Data](https://github.com/Gmusebe/ACLED-Spatial-Analysis-with-R-#part-1-summary-data)
-  - [Part 2: Spatial Analysis](https://github.com/Gmusebe/ACLED-Spatial-Analysis-with-R-#part-2-spatial-analysis)
+
+# SQL Basic Operation
+* Creating a table
+```sql
+-- Create Table
+CREATE TABLE Cities(
+  name VARCHAR(50),
+  country VARCHAR(50),
+  population INTEGER,
+  area INTEGER
+);
+```
+
+* Add/Insert values to a table
+```sql
+INSERT INTO
+  Cities (name, country, population, area)
+VALUES
+  ('Delhi', 'India', 28125000, 2240),
+  ('Shanghai', 'China', 22125000, 4015),
+  ('Sao Paulo', 'Brazil', 20935000, 3043);
+```
+
+* Retrieve Data from a table
+```sql
+-- Show all rows and columns
+SELECT * FROM Cities;
+```
+```sql
+-- Retrieve specific column data
+SELECT name, country FROM Cities;
+```
+
+* Calculated columns
+> Mathematical functions:
+```sql
+SELECT
+  name,
+  population / area AS population_density
+FROM
+  Cities;
+```
+* String manipulation
+```sql
+SELECT
+  name || ', ' || country AS location
+FROM
+  Cities;
+  
+-- Same as:
+SELECT
+  CONCAT(UPPER(name), ', ', UPPER(country)) AS location
+FROM
+  Cities;
+```
 
 
-## Installations
 
-## Setting Environment
+## SQL Intermediate
+
+## Advanced SQL
