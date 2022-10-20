@@ -42,3 +42,5 @@ CREATE TABLE photos (
 );
 
 -- Replaces the referencing record to null.
+
+-- To learn more about foreign keys: https://www.w3schools.com/SQL/sql_ref_foreign_key.asp
