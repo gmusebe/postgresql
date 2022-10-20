@@ -1,18 +1,26 @@
+-- Create the tables
+-- users
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
   username VARCHAR(50)
 );
+
+-- photos
 CREATE TABLE photos (
   id SERIAL PRIMARY KEY,
   url VARCHAR(200),
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
+
+-- comments
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY,
   contents VARCHAR(240),
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   photo_id INTEGER REFERENCES photos(id) ON DELETE CASCADE
 );
+
+--  Insert data into tables
 INSERT INTO
   users (username)
 VALUES
@@ -21,6 +29,7 @@ VALUES
   ('Alfredo66'),
   ('Gerard_Mitchell42'),
   ('Frederique_Donnelly');
+
 INSERT INTO
   photos (url, user_id)
 VALUES
@@ -44,6 +53,7 @@ VALUES
   ('http://buddy.info', 5),
   ('https://elinore.name', 2),
   ('http://sasha.com', 3);
+  
 INSERT INTO
   comments (contents, user_id, photo_id)
 VALUES
