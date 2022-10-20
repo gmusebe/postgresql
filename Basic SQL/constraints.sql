@@ -31,3 +31,14 @@ DELETE FROM
   users
 WHERE
   id = 1;
+
+-- On Delete Set Null  “Set the ‘user_id’ of the photo to NULL”
+CREATE TABLE photos (
+  id SERIAL PRIMARY KEY,
+  url VARCHAR(200),
+  user_id INTEGER REFERENCES users(id) ON DELETE
+  SET
+    NULL
+);
+
+-- Replaces the referencing record to null.
