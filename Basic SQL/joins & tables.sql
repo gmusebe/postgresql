@@ -17,3 +17,11 @@ FROM
 -- match that up with the row from the comments table using 
 -- the value of the user_id:
   JOIN users ON users.id = comments.user_id;
+
+-- Another Example:
+SELECT
+  contents,
+  url
+FROM
+  comments
+  JOIN photos ON photos.id = comments.photo_id;
