@@ -25,3 +25,12 @@ SELECT
 FROM
   comments
   JOIN photos ON photos.id = comments.photo_id;
+
+-- Exceptions: For such where user_id is NULL
+INSERT INTO
+  photos (url, user_id)
+VALUES
+  ('https://banner.net', NULL);
+  
+--  The former join won't return the result Why?
+-- There is no user matching the NULL value.
