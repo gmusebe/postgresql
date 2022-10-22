@@ -29,3 +29,13 @@ SELECT
 FROM
   photos
   FULL JOIN users ON users.id = photos.user_id;
+
+-- Where with Join
+SELECT
+  url,
+  contents
+FROM
+  photos
+  INNER JOIN comments ON comments.photo_id = photos.id
+WHERE
+  comments.user_id = photos.user_id;
