@@ -13,3 +13,11 @@ SELECT
 FROM
   photos
   LEFT JOIN users ON users.id = photos.user_id;
+
+-- Right Join:
+SELECT
+  url,
+  username
+FROM
+  photos
+  RIGHT JOIN users ON users.id = photos.user_id;
