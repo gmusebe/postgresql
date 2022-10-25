@@ -69,3 +69,12 @@ SELECT
   COUNT(*)
 FROM
   comments;
+--  join in group by
+SELECT
+	 name,
+   COUNT(*)
+FROM
+	 books
+   JOIN authors ON authors.id = book.authord_id
+GROUP BY
+	authors.name
