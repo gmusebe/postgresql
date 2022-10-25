@@ -46,3 +46,26 @@ SELECT
 FROM
   comments;
 
+--  Aggregates & GROUP BY
+SELECT
+  user_id,
+  MAX(id)
+FROM
+  comments
+GROUP BY
+  User_id;
+
+--  Count the number of comments made by a user:
+SELECT
+  user_id,
+  COUNT(id) AS num_comments_created
+FROM
+  comments
+GROUP BY
+  User_id;
+
+-- Count the total number of records:
+SELECT
+  COUNT(*)
+FROM
+  comments;
