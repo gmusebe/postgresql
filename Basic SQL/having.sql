@@ -14,3 +14,17 @@ GROUP BY
 	photo_id
 HAVING
 	 COUNT(*) > 2;
+
+-- EXAMPLE 2
+SELECT
+	user_id,
+  COUNT(*)
+FROM
+	comments
+--   JOIN users ON users.id = comments.user_id
+WHERE
+	user_id <= 50
+GROUP BY
+	user_id
+HAVING
+	COUNT(*) > 20;
