@@ -28,3 +28,14 @@ GROUP BY
 	user_id
 HAVING
 	COUNT(*) > 20;
+
+--  Example 3:
+SELECT
+    manufacturer,
+    SUM(price * units_sold) AS total_revenue
+FROM
+    phones
+GROUP BY
+    manufacturer
+HAVING
+	SUM(price * units_sold) > 2000000;
