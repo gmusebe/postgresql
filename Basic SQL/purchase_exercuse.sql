@@ -787,3 +787,12 @@ FROM
   products
 ORDER BY
   price, weight DESC;
+
+-- Offset (skipping records in a result set)
+--  Select the records of the last ten users:
+SELECT
+  *
+FROM
+  users
+OFFSET 40;
+-- Sol: With 50 users skip the first 40 users.
