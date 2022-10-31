@@ -741,3 +741,11 @@ GROUP BY
 	paid;
 
 --  returns unique paid values and there counts.
+-- 2. Return the identity of users with the orders made stating whether the orders have been paid for:
+SELECT
+	first_name,
+  last_name,
+  paid
+FROM
+	users
+  JOIN orders ON orders.user_id = users.id;
