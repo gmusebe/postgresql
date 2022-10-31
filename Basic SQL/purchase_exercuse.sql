@@ -779,3 +779,11 @@ FROM
   products
 ORDER BY
   name DESC;
+
+--  Order by ascending price and descending weight:
+SELECT
+  *
+FROM
+  products
+ORDER BY
+  price, weight DESC;
