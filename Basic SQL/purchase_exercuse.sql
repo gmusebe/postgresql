@@ -831,3 +831,28 @@ ORDER BY
 	price DESC
 LIMIT 5
 OFFSET 1;
+
+-- Limits and OFFSET is used when we want to display a number of outputs to a user pertime. e.g 20 records at a time
+
+--  UNION
+(
+  SELECT
+    *
+  FROM
+    products
+  ORDER BY
+    price DESC
+  LIMIT
+    4
+)
+UNION
+  (
+    SELECT
+      *
+    FROM
+      products
+    ORDER BY
+      price / weight DESC
+    LIMIT
+      4
+  );
