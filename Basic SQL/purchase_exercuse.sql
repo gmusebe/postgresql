@@ -796,3 +796,38 @@ FROM
   users
 OFFSET 40;
 -- Sol: With 50 users skip the first 40 users.
+
+--  Return five users in ours users record:
+SELECT
+  *
+FROM
+  users
+LIMIT 5;
+
+-- Return the list of five least expensive products:
+SELECT
+  *
+FROM
+  products
+ORDER BY
+	price
+LIMIT 5;
+
+-- Return the list of five most expensive products:
+SELECT
+  *
+FROM
+  products
+ORDER BY
+	price DESC
+LIMIT 5;
+
+-- Return the list of five most expensive products except for the most expensive:
+SELECT
+  *
+FROM
+  products
+ORDER BY
+	price DESC
+LIMIT 5
+OFFSET 1;
