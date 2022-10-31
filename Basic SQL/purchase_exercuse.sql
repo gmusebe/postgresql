@@ -750,6 +750,8 @@ FROM
 	users
   JOIN orders ON orders.user_id = users.id;
 
+
+-- SORT.....
 --  _ Sort the table by price:
 -- Details of all different products:
 SELECT
@@ -768,3 +770,12 @@ FROM
 ORDER BY
 -- 	Sort by price, from least to most expensive:
 	price DESC;
+
+
+-- SORT names alphabetically:
+SELECT
+  *
+FROM
+  products
+ORDER BY
+  name DESC;
