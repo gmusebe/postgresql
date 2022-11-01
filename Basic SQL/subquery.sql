@@ -46,3 +46,31 @@ FROM
   products
 WHERE
   price > 876;
+
+-- Ex. 3 Subquery in  SELECT
+SELECT
+  name,
+  price,
+  price / (
+    SELECT
+      MAX(price)
+    FROM
+      phones
+  ) AS price_ratio
+FROM
+  phones 
+
+-- Subquery in FROM:
+SELECT
+  name,
+  price_weight_ratio
+FROM
+  (
+    SELECT
+      name,
+      price / weight AS price_weight_ratio
+    FROM
+      products
+  ) AS p
+WHERE
+  price_weight_ratio > 5;
