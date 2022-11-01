@@ -85,3 +85,17 @@ FROM
     FROM
       products
   ) AS p
+
+--  From subquery in GROUPBY
+SELECT
+	AVG(p.order_count)
+FROM
+  (
+    SELECT
+      user_id,
+      COUNT(*) AS order_count
+    FROM
+      orders
+    GROUP BY
+      user_id
+  ) AS p
