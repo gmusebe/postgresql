@@ -60,7 +60,7 @@ SELECT
 FROM
   phones 
 
--- Subquery in FROM:
+-- Subquery in FROM: In Returning a table
 SELECT
   name,
   price_weight_ratio
@@ -74,3 +74,14 @@ FROM
   ) AS p
 WHERE
   price_weight_ratio > 5;
+
+-- FROM subquery in returning a single value
+SELECT
+  *
+FROM
+  (
+    SELECT
+      MAX(price)
+    FROM
+      products
+  ) AS p
