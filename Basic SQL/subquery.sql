@@ -140,3 +140,17 @@ WHERE
     WHERE
       price / weight > 5
   );
+
+-- Exercise with WHERE subquery;
+-- SHOW the name of all products with a price greater than the average product price
+SELECT
+  name
+FROM
+  products
+WHERE
+  price > (
+    SELECT
+      AVG(price)
+    FROM
+      products
+  )
