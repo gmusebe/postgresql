@@ -211,3 +211,12 @@ WHERE p1.price = (
     FROM products AS p2
     WHERE p1.department = p2.department
   );
+
+-- Without using a join or a group by, print the number of orders for each productALTER
+SELECT name,
+  (
+    SELECT COUNT(*)
+    FROM orders AS o1
+    WHERE o1.product_id = p1.id
+  )
+FROM products AS p1;
