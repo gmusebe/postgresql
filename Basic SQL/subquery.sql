@@ -112,4 +112,14 @@ FROM
     GROUP BY
       manufacturer
   ) AS 	p;
+
+  --  user queries in a JOIN Clause:
+SELECT
+  first_name
+FROM
+  users
+  INNER JOIN (
+    SELECT user_id FROM orders WHERE product_id = 3
+  ) As o
+ON o.user_id = users.id;
   
