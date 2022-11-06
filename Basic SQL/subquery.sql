@@ -168,4 +168,36 @@ WHERE
       products
     WHERE
       price < 100
+  );
+
+-- Gretater than ALL:
+SELECT
+  name,
+  department,
+  price
+FROM
+  products
+WHERE
+  price > ALL (
+    SELECT
+      price
+    FROM
+      products
+    WHERE
+      department = 'Industrial'
+  );
+
+-- Show the name of products that are more expensive that at aleast one product in the indusrial department:
+SELECT
+  name
+FROM
+  products
+WHERE
+  price > SOME (
+    SELECT
+      price
+    FROM
+      products
+    WHERE
+      department = 'Industrial'
   )
