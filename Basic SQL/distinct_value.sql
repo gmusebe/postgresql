@@ -28,3 +28,15 @@ FROM products;
 SELECT LEAST(1, 20, 50, 100);
 SELECT name, price, LEAST(price * 0.5, 400)
 FROM products;
+
+-- CASE
+SELECT
+  name,
+  price,
+  CASE
+    WHEN price > 600 THEN 'high'
+    WHEN price > 300 THEN 'medium'
+    ELSE 'cheap'
+  END
+FROM
+  products;
