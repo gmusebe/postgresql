@@ -30,11 +30,12 @@ SELECT name, price, LEAST(price * 0.5, 400)
 FROM products;
 
 -- CASE
+-- If else not inputed we will have a 'null'
 SELECT
   name,
   price,
   CASE
-    WHEN price > 600 THEN 'high'
+    WHEN price / weight > 600 THEN 'high'
     WHEN price > 300 THEN 'medium'
     ELSE 'cheap'
   END
