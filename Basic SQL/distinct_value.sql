@@ -20,6 +20,11 @@ FROM
 -- ---Greatest Value
 SELECT GREATEST(20, 10, 30);
 -- USE:
--- if 2 * weight < 30 return 30 or 2 * weight
+-- if 2 * weight < 30 return 30 or 2 * weight if > 30. Return the greatest of the two;
 SELECT name, weight, GREATEST(30, 2 * weight)
+FROM products;
+
+-- LEAST
+SELECT LEAST(1, 20, 50, 100);
+SELECT name, price, LEAST(price * 0.5, 400)
 FROM products;
