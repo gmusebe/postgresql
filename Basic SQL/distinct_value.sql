@@ -16,3 +16,7 @@ SELECT
   DISTINCT department, name
 FROM
   products;
+
+-- ---Greatest Value
+SELECT GREATEST(20, 10, 30);
+-- USE:
