@@ -6,6 +6,11 @@
 -- 	weight INTEGER
 -- );
 
-INSERT INTO products(name, department, price, weight)
-VALUES
-	('Shirts', 'Clothes', 20, 1)
+-- INSERT INTO products(name, department, weight)
+-- VALUES
+-- 	('Pants', 'Clothes', 3)
+
+-- Setting validation:
+ALTER TABLE products
+ALTER COLUMN price
+SET NOT NULL;
