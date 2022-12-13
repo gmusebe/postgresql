@@ -29,7 +29,20 @@ CREATE TABLE products(
 	weight INTEGER
 );
 
--- Set default
+-- -- Set default
 ALTER TABLE products
 ALTER COLUMN price
 SET DEFAULT 9999;
+
+-- Unique Constraint for a column:
+CREATE TABLE products(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(40) NOT NULL UNIQUE,
+	department VARCHAR(40) NOT NULL,
+	price INTEGER DEFAULT 9999,
+	weight INTEGER
+);
+
+ALTER TABLE products
+ADD UNIQUE(name);
+
