@@ -46,3 +46,6 @@ CREATE TABLE products(
 ALTER TABLE products
 ADD UNIQUE(name);
 
+-- Drop constraints
+ALTER TABLE products
+DROP CONSTRAINT products_name_key;
