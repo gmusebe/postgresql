@@ -57,8 +57,20 @@ ADD UNIQUE(name, department);
 -- Returns error:
 INSERT INTO products (name, department, price, weight)
 VALUES
-	('Shirts', 'Clothes', 24, 1);
+	('Belt', 'Accessories', -99, 1);
 
 -- Drop constraint:
 ALTER TABLE products
 DROP CONSTRAINT products_name_department_key;
+
+-- Adding a validation check:
+CREATE TABLE products(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(40) NOT NULL UNIQUE,
+	department VARCHAR(40) NOT NULL,
+	price INTEGER DEFAULT 9999 CHECK (price > 0),
+	weight INTEGER
+);
+
+ALTER TABLE products
+ADD CHECK(price > 0);
