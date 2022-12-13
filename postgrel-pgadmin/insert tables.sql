@@ -49,3 +49,16 @@ ADD UNIQUE(name);
 -- Drop constraints
 ALTER TABLE products
 DROP CONSTRAINT products_name_key;
+
+-- Multicolumn uniquneess
+ALTER TABLE products
+ADD UNIQUE(name, department);
+
+-- Returns error:
+INSERT INTO products (name, department, price, weight)
+VALUES
+	('Shirts', 'Clothes', 24, 1);
+
+-- Drop constraint:
+ALTER TABLE products
+DROP CONSTRAINT products_name_department_key;
