@@ -10,6 +10,11 @@
 -- VALUES
 -- 	('Pants', 'Clothes', 3)
 
+-- Pre-validtion for null:
+-- UPDATE products
+-- SET price = 9999
+-- WHERE price is NULL;
+
 -- Setting validation:
 ALTER TABLE products
 ALTER COLUMN price
