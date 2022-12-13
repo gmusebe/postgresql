@@ -74,3 +74,17 @@ CREATE TABLE products(
 
 ALTER TABLE products
 ADD CHECK(price > 0);
+
+-- Multiple Column check
+-- Check that delivery date is > creation/purchase date
+CREATE TABLE orders(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(40) NOT NULL,
+	created_at TIMESTAMP NOT NULL,
+	est_delivery TIMESTAMP NOT NULL,
+	CHECK(created_at < est_delivery)
+);
+
+INSERT INTO orders (name, created_at, est_delivery)
+VALUES
+	('Shirt', '2000 NOV 20 01:00AM ', '25 NOV 2000 02:00AM')
