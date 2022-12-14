@@ -27,7 +27,9 @@ Table comments {
 
 TABLE reactions {
   id SERIAL [pk, increment]
+  created_at TIMESTAMP
   user_id INTEGER [ref: > users.id]
+  comment_id INTEGER [ref: > comments.id]
   posts_id INTEGER [ref: > posts.id]
   type VARCHAR(10)
 }
