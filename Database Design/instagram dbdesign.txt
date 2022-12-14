@@ -24,3 +24,10 @@ Table comments {
   user_id INTEGER [ref: > users.id]
   posts_id INTEGER [ref: > posts.id]
 }
+
+TABLE reactions {
+  id SERIAL [pk, increment]
+  user_id INTEGER [ref: > users.id]
+  posts_id INTEGER [ref: > posts.id]
+  type VARCHAR(10)
+}
