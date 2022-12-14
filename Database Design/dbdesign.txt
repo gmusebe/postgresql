@@ -1,0 +1,18 @@
+# Open with dbiagram.io
+
+Table users {
+  id integer [pk, increment]
+  username varchar
+}
+
+Table comments {
+  id integer [pk, increment]
+  comments varchar
+  user_id integer [ref: > users.id]
+  posts_id integer [ref: > posts.id]
+}
+
+Table posts {
+  id integer [pk, increment]
+  title varchar
+}
