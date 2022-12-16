@@ -12,7 +12,9 @@ Table posts {
   created_at TIMESTAMP
   updated_at TIMESTAMP
   url VARCHAR(200)
-  title VARCHAR
+  caption VARCHAR(240)
+  lat REAL
+  lng REAL
   user_id INTEGER [ref: > users.id]
 }
 
