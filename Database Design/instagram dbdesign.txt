@@ -81,3 +81,5 @@ Table followers {
     user_id INTEGER [ref: > users.id]
     follower_id INTEGER [ref: > users.id]
 }
+
+// End
