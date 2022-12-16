@@ -35,3 +35,22 @@ TABLE reactions {
   posts_id INTEGER [ref: > posts.id]
   type VARCHAR(10)
 }
+
+
+Table photo_tags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+  posts_id INTEGER [ref: > posts.id]
+  user_id INTEGER [ref: > users.id]
+  x INTEGER
+  y INTEGER
+}
+
+
+Table caption_tags {
+  id SERIAL [pk, increment]
+  created_at TIMESTAMP
+  posts_id INTEGER [ref: > posts.id]
+  user_id INTEGER [ref: > users.id]
+}
