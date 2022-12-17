@@ -52,6 +52,10 @@ CREATE TABLE reactions (
 	UNIQUE(user_id, post_id, comment_id)
 );
 
+--  Alter TABLE NAME:
+ALTER TABLE reactions
+  RENAME TO likes;
+
 -- photo tags table
 CREATE TABLE photo_tags (
 	id SERIAL PRIMARY KEY,
