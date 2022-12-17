@@ -7,7 +7,7 @@ CREATE TABLE users (
 	bio VARCHAR(400),
 	avatar VARCHAR(200),
 	phone VARCHAR(25),
-	email VARCHAR(50),
+	email VARCHAR(40),
 	password VARCHAR(50),
 	status VARCHAR(15),
 	CHECK (COALESCE(phone, email) IS NOT NULL)
@@ -20,8 +20,8 @@ CREATE TABLE posts (
 	updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	url VARCHAR(200) NOT NULL,
 	caption VARCHAR(240),
-	lat REAL CHECK(lat IS NULL OR (lat >=-90 AND lat <=90)),
-	lng REAL CHECK(lat IS NULL OR (lng >=-180 AND lng <=180)),
+	lat REAL CHECK(lat IS NULL OR (lat >= -90 AND lat <= 90)),
+	lng REAL CHECK(lng IS NULL OR (lng >= -180 AND lng <= 180)),
 	user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE
 );
 
@@ -30,18 +30,18 @@ CREATE TABLE comments (
 	id SERIAL PRIMARY KEY,
 	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-	content VARCHAR(240) NOT NULL,
+	contents VARCHAR(240) NOT NULL,
 	user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-	post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+	post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE
 );
 
 -- likes/reaction resource
-CREATE TABLE reactions (
+CREATE TABLE likes (
 	id SERIAL PRIMARY KEY,
 	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-	comment_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 	post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
+	comment_id INTEGER REFERENCES comments(id) ON DELETE CASCADE,
 	CHECK(
 		COALESCE((post_id)::BOOLEAN::INTEGER, 0)
 		+
@@ -52,9 +52,6 @@ CREATE TABLE reactions (
 	UNIQUE(user_id, post_id, comment_id)
 );
 
---  Alter TABLE NAME:
-ALTER TABLE reactions
-  RENAME TO likes;
 
 -- photo tags table
 CREATE TABLE photo_tags (
@@ -78,14 +75,14 @@ CREATE TABLE caption_tags (
 );
 
 -- hashtags table
-CREATE TABLE hashtags(
+CREATE TABLE hashtags (
 	id SERIAL PRIMARY KEY,
 	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 	title VARCHAR(20) NOT NULL UNIQUE
 );
 
 -- hashtag posts table 
-CREATE TABLE hashtag_posts(
+CREATE TABLE hashtags_posts(
 	id SERIAL PRIMARY KEY,
 	hashtag_id INTEGER NOT NULL REFERENCES hashtags(id) ON DELETE CASCADE,
 	post_id INTEGER NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
@@ -96,7 +93,8 @@ CREATE TABLE hashtag_posts(
 CREATE TABLE followers (
 	id SERIAL PRIMARY KEY,
 	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-	user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+	-- leader is the person being followed
+	leader_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
 	follower_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-	UNIQUE(user_id, follower_id)
+	UNIQUE(leader_id, follower_id)
 );
