@@ -31,7 +31,7 @@ FROM
 WHERE username = 'Alyson14';
 
 -- execution efficiency in time:
-EXPLAIN SELECT username, contents
+EXPLAIN ANALYZE SELECT username, contents
 FROM
   users
   JOIN comments ON comments.user_id = users.id
