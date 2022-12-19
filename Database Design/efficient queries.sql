@@ -4,8 +4,13 @@
 -- creating an index
 CREATE INDEX ON users(username);
 
+-- size of Index:
+SELECT pg_size_pretty(pg_relation_size('users'));
+SELECT pg_size_pretty(pg_relation_size('users_username_idx'));
+
 -- Drop an Index:
 DROP INDEX users_username_idx;
+
 
 -- Test Performance with Index = 0.057ms, without Index = 1.242ms:
 EXPLAIN ANALYSE SELECT *
